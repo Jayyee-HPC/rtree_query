@@ -197,7 +197,13 @@ int test_parallel(int argc, char **argv)
             spdlog::info("Thread {}, index {}, query {}, total {}", thread_rank, t_index, t_query, t_index+t_query);
 
         },i, vect_lists_envs->at(i), list_envs_2, & thread_results[i]);
+
+        vect_thread.push_back(std::move(temp_thread));
     }
+
+    for (auto& itr : vect_thread)
+        itr.join();
+
     /************************ Lambda end ************************************************************************/
 
     auto t_thread_end = std::chrono::steady_clock::now();
