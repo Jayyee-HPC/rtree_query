@@ -6,8 +6,8 @@ int test_parallel(int argc, char **argv);
 
 int main(int argc, char **argv)
 {
-    test(argc, argv);
-    //test_parallel(argc, argv);
+    //test(argc, argv);
+    test_parallel(argc, argv);
     return 0;
 }
 
