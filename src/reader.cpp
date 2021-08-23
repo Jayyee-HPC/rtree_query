@@ -321,17 +321,18 @@ namespace gsj
         size_t i, j, k, start, end, str_len, size = vect_strs->size();
         std::string temp_str;
         double env[4] = {0.0};
-        ;
 
-        for (i = 0; i < size; ++i)
+        //discard first string, the global MBR
+        for (i = 1; i < size; ++i)
         {
             temp_str = vect_strs->at(i);
             start = end = 0;
             str_len = temp_str.size();
 
+            k = 0;
+
             for (j = 0; j < str_len; ++j)
             {
-                k = 0;
                 if (temp_str[j] == ' ' && k < 4)
                 {
                     end = j;
@@ -339,10 +340,13 @@ namespace gsj
                     ++k;
                     start = j + 1;
                 }
+
                 if (4 <= k)
                     break;
             }
             list_envs->push_back(new geos::geom::Envelope(env[0], env[1], env[2], env[3]));
+
+            //std::cout<<env[0]<<" "<<env[1]<<" "<<env[2]<<" "<<env[3]<<std::endl;
         }
     }
 

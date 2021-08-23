@@ -10,7 +10,7 @@ OBJ_DIR  := $(MAKE_DIR)/bin
 APP_DIR  := $(MAKE_DIR)
 TEST_DIR := $(MAKE_DIR)/tests
 TARGET   := prog
-INCLUDE  := -I/usr/local/include -I${HOME}/.local/include -Iinclude
+INCLUDE  := -isystem ${HOME}/.local/include -Iinclude -I/usr/local/include 
 SRC      :=                      \
    $(wildcard src/*.cpp)         \
    $(wildcard tests/*.cpp)       \

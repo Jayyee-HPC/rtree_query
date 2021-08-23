@@ -60,7 +60,7 @@ int test(int argc, char **argv)
 
     /************************Build index end************************************************************************/
 
-    uint counter = 0;
+    //uint counter = 0;
     for (std::list<geos::geom::Envelope *>::iterator itr = list_envs_2->begin(); itr != list_envs_2->end(); ++itr)
     {
 	    geos::geom::Envelope * temp_env = *itr;
@@ -69,10 +69,10 @@ int test(int argc, char **argv)
 	    index_for_layer_1.query(temp_env, results);
 	    result += results.size();
 
-	    spdlog::debug("{} {}", counter++, results.size());
+	    //spdlog::debug("{} {}", counter++, results.size());
 
 	    results.clear();
-            results.shrink_to_fit();
+        results.shrink_to_fit();
     }
 
     auto t_query_end = std::chrono::steady_clock::now();
