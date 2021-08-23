@@ -68,9 +68,11 @@ int test(int argc, char **argv)
 
 	    index_for_layer_1.query(temp_env, results);
 	    result += results.size();
+
 	    spdlog::debug("{} {}", counter++, results.size());
-	    result.clear();
-            result.shrink_to_fit();
+
+	    results.clear();
+            results.shrink_to_fit();
     }
 
     auto t_query_end = std::chrono::steady_clock::now();
