@@ -56,6 +56,7 @@ int test(int argc, char **argv)
     }
 
     auto t_index_end = std::chrono::steady_clock::now();
+    spdlog::debug("Index built");
 
     /************************Build index end************************************************************************/
 
